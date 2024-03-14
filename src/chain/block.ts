@@ -51,4 +51,6 @@ export interface SignedBlockRawBlockApi {
         ref_block_prefix: number;
         signatures: string[];
     }[];
+    witness: string;
+    witness_signature: string;
 }

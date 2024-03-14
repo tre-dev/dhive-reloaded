@@ -143,8 +143,9 @@ describe('database api', function () {
 
     // TODO: At some point, the test will fail because no api node will support the condenser call
     it('getBlock', async function () {
-        const resultOld = await TEST_CLIENT.database.getBlockCondenser(82771134);
-        const result = await TEST_CLIENT.database.getBlock(82771134);
+        const blockNum = 82771134;
+        const resultOld = await TEST_CLIENT.database.getBlockCondenser(blockNum);
+        const result = await TEST_CLIENT.database.getBlock(blockNum);
 
         if (result) {
             expect(result.previous).toEqual('04eefcbda863ee5cf1494f7089a18f1cd06ae260');
@@ -153,6 +154,9 @@ describe('database api', function () {
                 const tx = result.transactions[i];
                 expect(tx.transaction_id).toEqual(txOld.transaction_id);
                 expect(tx.operations.length).toEqual(txOld.operations.length);
+                expect(tx.ref_block_num).toEqual(txOld.ref_block_num);
+                expect(tx.ref_block_prefix).toEqual(txOld.ref_block_prefix);
+                expect(tx.block_num).toEqual(txOld.block_num);
                 for (let j = 0; j < tx.operations.length; j++) {
                     expect(tx.operations[j][0]).toEqual(txOld.operations[j][0]);
                 }

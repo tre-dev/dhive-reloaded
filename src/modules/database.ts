@@ -187,7 +187,7 @@ export class DatabaseAPI {
                     ref_block_num: transaction.ref_block_num,
                     ref_block_prefix: transaction.ref_block_prefix,
                     transaction_id: txId,
-                    block_num: transaction.ref_block_num,
+                    block_num: blockNum,
                     signatures: transaction.signatures,
                     transaction_num: transactionIndex,
                 });
@@ -202,8 +202,8 @@ export class DatabaseAPI {
                 transactions,
                 extensions: block.extensions,
                 previous: block.previous,
-                witness: '',
-                witness_signature: block.signing_key,
+                witness: block.witness,
+                witness_signature: block.witness_signature,
                 timestamp: block.timestamp,
                 transaction_merkle_root: block.transaction_merkle_root,
             };
