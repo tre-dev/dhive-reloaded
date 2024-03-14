@@ -1,4 +1,3 @@
-import { Operation } from './operation';
 import { SignedTransactionInBlock } from './transaction';
 
 /**
@@ -24,22 +23,17 @@ export interface SignedBlockHeader extends BlockHeader {
  */
 export interface SignedBlock extends SignedBlockHeader {
     block_id: string;
-    ref_block_num: number;
-    ref_block_prefix: number;
-    expiration: string;
+    extensions: string[];
     signing_key: string;
     transaction_ids: string[];
     transactions: SignedTransactionInBlock[];
 }
 
-export interface SignedBlockRawBlockApi {
+export interface SignedBlockRawBlockApi extends SignedBlockHeader {
     block_id: string;
     extensions: string[];
-    previous: string;
     signing_key: string;
-    timestamp: string;
     transaction_ids: string[];
-    transaction_merkle_root: string;
     transactions: {
         expiration: string;
         extensions: string[];
@@ -51,6 +45,4 @@ export interface SignedBlockRawBlockApi {
         ref_block_prefix: number;
         signatures: string[];
     }[];
-    witness: string;
-    witness_signature: string;
 }

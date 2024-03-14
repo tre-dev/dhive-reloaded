@@ -194,9 +194,6 @@ export class DatabaseAPI {
             });
             return {
                 block_id: block.block_id,
-                ref_block_num: block.transactions[0].ref_block_num,
-                ref_block_prefix: block.transactions[0].ref_block_prefix,
-                expiration: block.transactions[0].expiration,
                 signing_key: block.signing_key,
                 transaction_ids: block.transaction_ids,
                 transactions,
