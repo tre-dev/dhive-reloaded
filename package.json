@@ -1,6 +1,6 @@
 {
     "name": "dhive-reloaded",
-    "version": "1.0.11",
+    "version": "1.0.12",
     "description": "",
     "main": "dist/dhive-reloaded.js",
     "module": "dist/dhive-reloaded.esm.js",
